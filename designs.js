@@ -7,23 +7,29 @@ function makeGrid() {
     var height,width;
     height= $("#input_height").val();
     width= $("#input_width").val();
-    var i,j;
-    for(i=1;i<=height;i++) {
+    $("#pixel_canvas").children().remove();
+    for(var i=1;i<=height;i++) {
         $("table").append("<tr></tr>");
-        for(j=1;j<=width;j++){
+        for(var j=1;j<=width;j++){
             $("tr").last().append("<td></td>");
         }
     }
+    cell = $("table").find("td");
+    cell.click(function() {
+        var color;
+        color = $("#colorPicker").val();
+        $(this).attr('bgcolor', color);
+    });
 }
 
-function colorSet() {
-    var picker;
-    picker= $("#colorPicker").val();
-}
+
 
 
 $(document).ready(function(){
-    $("#submitted").click(makeGrid());
+    $("#submitted").click(function(){ 
+        makeGrid();
+        return false; 
+    });
 });
 
 
