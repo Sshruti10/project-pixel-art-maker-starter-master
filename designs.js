@@ -14,7 +14,7 @@ function makeGrid() {
             $("tr").last().append("<td></td>");
         }
     }
-    cell = $("table").find("td");
+   var cell = $("table").find("td");
     cell.click(function() {
         var color;
         color = $("#colorPicker").val();
